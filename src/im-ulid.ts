@@ -9,7 +9,7 @@ export const imUlid = function () {
   let i = 10;
   while (i--) {
     digit = time % charactorLength;
-    code = charactors.charAt(digit) + code;
+    code = charactors[digit] + code;
     time = (time - digit) / charactorLength;
   }
 
@@ -20,7 +20,7 @@ export const imUlid = function () {
 
   i = 16;
   while (i--) {
-    code += charactors.charAt(randomList[i] & (charactorLength - 1));
+    code += charactors[randomList[i] & (charactorLength - 1)];
   }
 
   return code;
