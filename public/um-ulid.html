@@ -6,8 +6,11 @@
 <script src="/js/im-ulid.js"></script>
 <script>
   !function() {
+    const ulid = exports.imUlid();
+    console.assert(ulid.length === 26);
+
     var paragraph = document.createElement('p');
-    paragraph.innerText = exports.imUlid();
+    paragraph.innerText = ulid;
     document.body.appendChild(paragraph);
   }();
 </script>
