@@ -1,3 +1,13 @@
 <!doctype html>
 <h1>IM-ULID</h1>
+<script>
+  var exports = {};
+</script>
 <script src="/js/im-ulid.js"></script>
+<script>
+  !function() {
+    var paragraph = document.createElement('p');
+    paragraph.innerText = exports.imUlid();
+    document.body.appendChild(paragraph);
+  }();
+</script>
