@@ -1,10 +1,12 @@
 {
-  "strict": false,
   "extends": "./node_modules/gts/tsconfig-google.json",
   "compilerOptions": {
     "rootDir": "src",
     "outDir": "dist",
-    "lib": ["DOM"]
+    "lib": ["DOM"],
+    "esModuleInterop": false,
+    "target": "ES5",
+    "module": "CommonJS"
   },
   "include": [
     "src/**/*.ts",

@@ -8,7 +8,6 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'dist/'),
-    library: 'im-ulid',
     libraryTarget: 'commonjs',
   },
   module: {
@@ -18,5 +17,10 @@ module.exports = {
         use: 'ts-loader',
       },
     ],
+  },
+  devServer: {
+    host: '0.0.0.0',
+    contentBase: path.resolve(__dirname, './public'),
+    publicPath: '/js/',
   },
 };
