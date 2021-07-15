@@ -1,7 +1,7 @@
 {
   "name": "im-ulid",
   "version": "0.0.1",
-  "main": "dist/index.js",
+  "main": "dist/im-ulid.js",
   "repository": "git@github.com:IntimateMerger/im-ulid.git",
   "license": "MIT",
   "devDependencies": {

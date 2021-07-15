@@ -1,0 +1,1 @@
+!function(){"use strict";var e={};!function(){var t=e;Object.defineProperty(t,"__esModule",{value:!0}),t.default=function(){return"abc"}}(),exports["im-ulid"]=e}();
