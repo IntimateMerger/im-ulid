@@ -1,5 +1,5 @@
 {
-  "name": "im-ulid",
+  "name": "@intimatemerger/im-ulid",
   "version": "0.0.1",
   "main": "dist/im-ulid.js",
   "repository": "git@github.com:IntimateMerger/im-ulid.git",
