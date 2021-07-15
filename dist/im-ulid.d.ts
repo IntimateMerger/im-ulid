@@ -1,1 +1,1 @@
-export default function (): string;
+export declare const imUlid: () => string;
