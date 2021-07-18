@@ -1,6 +1,6 @@
 {
   "name": "@intimatemerger/im-ulid",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "dist/im-ulid.js",
   "types": "dist/im-ulid.d.ts",
   "repository": "git@github.com:IntimateMerger/im-ulid.git",
