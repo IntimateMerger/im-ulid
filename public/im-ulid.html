@@ -1,0 +1,19 @@
+<!doctype html>
+<h1>IM-ULID</h1>
+<script>
+  var exports = {};
+</script>
+<script src="/js/im-ulid.js"></script>
+<script>
+  !function() {
+    for (let i = 512; i > 0; i--) {
+      const ulid = exports.imUlid();
+      console.assert(ulid.length === 26);
+      console.assert(/^[0123456789ABCDEFGHJKMNPQRSTVWXYZ]{26}$/.test(ulid));
+
+      var paragraph = document.createElement('p');
+      paragraph.innerText = ulid;
+      document.body.appendChild(paragraph);
+    }
+  }();
+</script>
