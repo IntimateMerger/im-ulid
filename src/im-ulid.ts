@@ -20,7 +20,7 @@ export const imUlid = function () {
 
   i = 16;
   while (i--) {
-    code += charactors[randomList[i] & (charactorLength - 1)];
+    code += charactors[randomList[i] & 31];
   }
 
   return code;
