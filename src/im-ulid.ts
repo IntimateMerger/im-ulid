@@ -13,12 +13,12 @@ export const imUlid = function () {
     time = (time - digit) / charactorLength;
   }
 
-  const randomList = new Uint8Array(16);
+  i = 16;
+  const randomList = new Uint8Array(i);
   // eslint-disable-next-line
   // @ts-ignore
   ('crypto' in window ? crypto : msCrypto).getRandomValues(randomList);
 
-  i = 16;
   while (i--) {
     code += charactors[randomList[i] & 31];
   }
