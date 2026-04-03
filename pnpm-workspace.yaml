@@ -1,0 +1,17 @@
+auditLevel: high
+engineStrict: true
+ignoreScripts: true
+minimumReleaseAge: 10080 # 1 week
+overrides:
+  brace-expansion@<1.1.13: '>=1.1.13'
+  braces@<3.0.3: '>=3.0.3'
+  http-proxy-middleware@<2.0.7: '>=2.0.7'
+  micromatch@<4.0.8: '>=4.0.8'
+  node-forge@<1.4.0: '>=1.4.0'
+  tmp@<=0.2.3: '>=0.2.4'
+  webpack-dev-middleware@<=5.3.3: '>=5.3.4'
+  webpack-dev-server@<=5.2.0: '>=5.2.1'
+packageManagerStrictVersion: true
+savePrefix: ""
+trustPolicy: no-downgrade
+trustPolicyIgnoreAfter: 10080 # 1 week
