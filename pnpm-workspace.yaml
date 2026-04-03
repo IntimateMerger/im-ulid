@@ -1,4 +1,7 @@
 auditLevel: high
+# lodash 4.18.x がminimumReleaseAge (7日) を超えたら削除すること
+ignoreCves:
+  - GHSA-r5fr-rjxr-66jc # lodash Code Injection (>=4.18.0 で修正済み)
 engineStrict: true
 ignoreScripts: true
 minimumReleaseAge: 10080 # 1 week
