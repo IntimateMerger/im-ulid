@@ -1,7 +1,4 @@
 auditLevel: high
-# lodash 4.18.x がminimumReleaseAge (7日) を超えたら削除すること
-ignoreCves:
-  - GHSA-r5fr-rjxr-66jc # lodash Code Injection (>=4.18.0 で修正済み)
 engineStrict: true
 ignoreScripts: true
 minimumReleaseAge: 10080 # 1 week
@@ -14,6 +11,12 @@ overrides:
   tmp@<=0.2.3: '>=0.2.4'
   webpack-dev-middleware@<=5.3.3: '>=5.3.4'
   webpack-dev-server@<=5.2.0: '>=5.2.1'
+  lodash@<=4.17.23: ">=4.18.1"
+  lodash-es@<=4.17.23: ">=4.18.1"
+# lodash 4.18.x がminimumReleaseAge (7日) を超えたら削除すること
+minimumReleaseAgeExclude:
+  - lodash
+  - lodash-es
 packageManagerStrictVersion: true
 savePrefix: ""
 trustPolicy: no-downgrade
