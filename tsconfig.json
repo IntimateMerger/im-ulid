@@ -3,8 +3,10 @@
   "compilerOptions": {
     "rootDir": "src",
     "outDir": "dist",
-    "lib": ["DOM"],
+    "lib": ["DOM", "ES2023"],
     "esModuleInterop": false,
+    "ignoreDeprecations": "6.0",
+    "composite": false,
     "target": "ES5",
     "module": "CommonJS"
   },
