@@ -144,4 +144,35 @@ describe('imUlid', () => {
       expect(set.size).toBe(100);
     });
   });
+
+  describe('msCrypto フォールバック (legacy IE)', () => {
+    it('window.crypto が無い環境では msCrypto を使う', () => {
+      const originalCrypto = window.crypto;
+      const fakeGetRandomValues = vi.fn((arr: Uint8Array) => {
+        arr.fill(0);
+        return arr;
+      });
+      // window.crypto を削除し、msCrypto をグローバルに定義
+      // @ts-expect-error - jsdom の crypto を一時的に外す
+      delete window.crypto;
+      // @ts-expect-error - msCrypto は IE 用フォールバック (型は global に存在しない)
+      (window as unknown as Record<string, unknown>).msCrypto = {
+        getRandomValues: fakeGetRandomValues,
+      };
+      try {
+        vi.spyOn(Date, 'now').mockReturnValue(0);
+        const ulid = imUlid();
+        expect(fakeGetRandomValues).toHaveBeenCalledTimes(1);
+        expect(ulid).toBe('0'.repeat(26));
+      } finally {
+        // 後続テストのために crypto を戻して msCrypto を片付ける
+        Object.defineProperty(window, 'crypto', {
+          configurable: true,
+          value: originalCrypto,
+        });
+        // @ts-expect-error - 後片付け
+        delete (window as unknown as Record<string, unknown>).msCrypto;
+      }
+    });
+  });
 });
