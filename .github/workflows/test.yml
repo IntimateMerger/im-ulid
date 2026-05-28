@@ -1,0 +1,31 @@
+name: test
+
+on: [push, pull_request]
+
+env:
+  # webpack 5.44 が node 17+ で動かない (ERR_OSSL_EVP_UNSUPPORTED) ため、
+  # build step では旧 OpenSSL provider を有効化する。migration PR で
+  # webpack 5.105+ に上がれば不要になる。
+  NODE_OPTIONS: --openssl-legacy-provider
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - run: yarn install --immutable
+
+      - run: yarn test
+
+      - run: yarn build
