@@ -4,6 +4,6 @@ import gts from 'gts';
 export default defineConfig([
   ...gts,
   {
-    ignores: ['dist/', 'webpack.config.js'],
+    ignores: ['dist/', 'webpack.config.js', 'vitest.config.ts'],
   },
 ]);
