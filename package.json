@@ -1,8 +1,11 @@
 {
-  "name": "@intimatemerger/im-ulid",
+  "name": "@intimatemerger-internal/im-ulid",
   "version": "0.0.6",
   "main": "dist/im-ulid.js",
   "types": "dist/im-ulid.d.ts",
+  "files": [
+    "dist"
+  ],
   "repository": "git@github.com:IntimateMerger/im-ulid.git",
   "license": "MIT",
   "devDependencies": {
@@ -27,7 +30,8 @@
     "prepare": "yarn run build",
     "test": "yarn run test:vitest",
     "test:vitest": "vitest run",
-    "test:vitest:watch": "vitest"
+    "test:vitest:watch": "vitest",
+    "artifactregistry-login": "npx google-artifactregistry-auth"
   },
   "packageManager": "yarn@1.22.22"
 }
