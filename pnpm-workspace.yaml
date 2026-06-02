@@ -1,0 +1,12 @@
+auditLevel: high
+engineStrict: true
+ignoreScripts: true
+minimumReleaseAge: 10080 # 1 week
+minimumReleaseAgeExclude:
+  - tmp
+overrides:
+  tmp@<=0.2.5: '>=0.2.6'
+packageManagerStrictVersion: true
+savePrefix: ""
+trustPolicy: no-downgrade
+trustPolicyIgnoreAfter: 10080 # 1 week
