@@ -104,3 +104,6 @@ typings/
 .tern-port
 
 .pnpm-store/
+
+# build artifacts (pnpm build / CI publish で生成。commit しない)
+dist/
