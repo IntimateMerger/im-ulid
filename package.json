@@ -28,7 +28,7 @@
     "prebuild": "pnpm run lint",
     "build": "pnpm run build:js && pnpm run build:types",
     "build:js": "webpack",
-    "build:types": "tsc --project tsconfig.build.json --declaration --emitDeclarationOnly --outDir dist",
+    "build:types": "tsc --project tsconfig.build.json --declaration --emitDeclarationOnly",
     "dev": "webpack serve",
     "fix": "gts fix",
     "prepare": "pnpm run build",
