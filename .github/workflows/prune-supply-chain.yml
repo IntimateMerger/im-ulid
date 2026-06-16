@@ -25,6 +25,6 @@ jobs:
         with:
           node-version-file: package.json
 
-      - uses: IntimateMerger/prune-supply-chain-overrides-action@0e16deedcabd3995212707a1afe2dcc484f26c38 # v1.0.2
+      - uses: IntimateMerger/prune-supply-chain-overrides-action@3eee6bcd79a4067a84c9a0902c898add08cabb1f # v1.0.4
         with:
           working-directory: .
