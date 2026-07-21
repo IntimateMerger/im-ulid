@@ -13,6 +13,12 @@ overrides:
   esbuild@<0.28.1: '>=0.28.1 <1.0.0'
   ws@<8.21.0: '>=8.21.0 <9.0.0'
   form-data@<4.0.6: '>=4.0.6 <5.0.0'
+  # 2026-07 audit 波の新規 advisory 対応
+  'websocket-driver': '>=0.7.5'
+  'brace-expansion@1': '>=1.1.16 <2'
+  'js-yaml@4': '>=4.3.0'
+  'shell-quote': '>=1.9.0'
+  'brace-expansion@>=3 <5.0.7': '>=5.0.7'
 packageManagerStrictVersion: true
 savePrefix: ""
 trustPolicy: no-downgrade
