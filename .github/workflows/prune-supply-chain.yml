@@ -39,6 +39,6 @@ jobs:
       - name: Login to ArtifactRegistry
         run: npx --yes google-artifactregistry-auth
 
-      - uses: IntimateMerger/prune-supply-chain-overrides-action@3eee6bcd79a4067a84c9a0902c898add08cabb1f # v1.0.4
+      - uses: IntimateMerger/prune-supply-chain-overrides-action@f5fdfe0f1e3662186dde89dbf245360d7df053a3 # v1.0.5
         with:
           working-directory: .
