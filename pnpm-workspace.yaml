@@ -7,6 +7,10 @@ minimumReleaseAgeExclude:
   - '@esbuild/*'
   - form-data
   - tmp
+  # brace-expansion 5.0.8 / js-yaml 5.2.2 (いずれも 2026-07-23 公開) が
+  # minimumReleaseAge (7日) を超えたら削除すること -> 2026-07-31 以降
+  - brace-expansion
+  - js-yaml
 overrides:
   shell-quote@<1.8.4: ">=1.8.4"
   tmp@<0.2.7: '>=0.2.7 <1.0.0'
@@ -15,10 +19,22 @@ overrides:
   form-data@<4.0.6: '>=4.0.6 <5.0.0'
   # 2026-07 audit 波の新規 advisory 対応
   'websocket-driver': '>=0.7.5'
-  'brace-expansion@1': '>=1.1.16 <2'
-  'js-yaml@4': '>=4.3.0'
+  # brace-expansion は 5.0.7 以下が全て脆弱になり 1 系に安全版が無い。
+  # 1 系を要求するのは minimatch 3 系のみなので、minimatch 側を
+  # brace-expansion 5 系を使う 10 系へ引き上げて解消する。
+  'minimatch@<10.0.0': '>=10.2.4'
+  'brace-expansion@1': '>=5.0.8'
+  # 上限なしのため実際には js-yaml 5 系が入る。5.2.1 以下が新たに脆弱化
+  # したので下限を 5.2.2 へ引き上げる。
+  # (override セレクタは解決後の版ではなく親が宣言するレンジに対して
+  #  マッチするため、js-yaml@5 のセレクタを足しても発火しない)
+  'js-yaml@4': '>=5.2.2'
   'shell-quote': '>=1.9.0'
-  'brace-expansion@>=3 <5.0.7': '>=5.0.7'
+  # 2026-07-27 audit 波。既存 override は 5.0.7 / 4系 を指しており、
+  # 5.0.7 自身・5系 が新たに脆弱化した分をセレクタごと引き上げる。
+  'brace-expansion@>=3 <5.0.8': '>=5.0.8'
+  'postcss@<8.5.18': '>=8.5.18'
+  'fast-uri@>=3.0.0 <3.1.4': '>=3.1.4'
 packageManagerStrictVersion: true
 savePrefix: ""
 trustPolicy: no-downgrade
