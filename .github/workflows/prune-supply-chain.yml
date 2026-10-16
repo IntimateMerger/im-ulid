@@ -8,7 +8,6 @@ on:
 permissions:
   contents: write
   pull-requests: write
-  id-token: write
 
 jobs:
   prune:
@@ -26,19 +25,6 @@ jobs:
         with:
           node-version-file: package.json
 
-      - id: auth
-        name: Authenticate to Google Cloud
-        uses: google-github-actions/auth@7c6bc770dae815cd3e89ee6cdf493a5fab2cc093 # v3.0.0
-        with:
-          workload_identity_provider: ${{ vars.WORKLOAD_IDENTITY_PROVIDER }}
-          service_account: ${{ vars.WORKLOAD_IDENTITY_SERVICE_ACCOUNT }}
-
-      - name: Set up Cloud SDK
-        uses: google-github-actions/setup-gcloud@aa5489c8933f4cc7a4f7d45035b3b1440c9c10db # v3.0.1
-
-      - name: Login to ArtifactRegistry
-        run: npx --yes google-artifactregistry-auth
-
-      - uses: IntimateMerger/prune-supply-chain-overrides-action@f5fdfe0f1e3662186dde89dbf245360d7df053a3 # v1.0.5
+      - uses: IntimateMerger/prune-supply-chain-overrides-action@88f607b73098435c1704da07af14e7d4bfcf4a5d # v1.0.9
         with:
           working-directory: .
