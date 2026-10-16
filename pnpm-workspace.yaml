@@ -37,6 +37,11 @@ overrides:
   'brace-expansion@>=3 <5.0.8': '>=5.0.8'
   'postcss@<8.5.18': '>=8.5.18'
   'fast-uri@>=3.0.0 <3.1.4': '>=3.1.4'
+  # sockjs 0.3.24（webpack-dev-server 5 系が使う）が uuid ^8.3.2 を宣言しており、
+  # 修正版の 11.1.1 以上に届かない。sockjs は CJS で、uuid 12 以降は CJS ビルドを
+  # 含まず上流も CJS の利用者に 11 系を案内しているので、11 系に留める。
+  # webpack-dev-server 6 系は sockjs に依存しないので、6 系に上げたら削除すること
+  'uuid@<11.1.1': '>=11.1.1 <12.0.0'
 packageManagerStrictVersion: true
 savePrefix: ""
 trustPolicy: no-downgrade

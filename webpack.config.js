@@ -25,7 +25,11 @@ module.exports = {
   },
   devServer: {
     host: '0.0.0.0',
-    contentBase: path.resolve(__dirname, './public'),
-    publicPath: '/js/',
+    static: {
+      directory: path.resolve(__dirname, './public'),
+    },
+    devMiddleware: {
+      publicPath: '/js/',
+    },
   },
 };
