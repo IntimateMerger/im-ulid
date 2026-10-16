@@ -1,8 +1,8 @@
 auditLevel: high
 auditConfig:
   ignoreGhsas:
-    # braces <=3.0.3 の DoS（修正版は未公開）。経路は ts-loader の micromatch と
-    # webpack-dev-server の chokidar / http-proxy-middleware だけで、公開する dist には入らない。
+    # braces <=3.0.3 の DoS（修正版は未公開）。経路は ts-loader と webpack-dev-server の
+    # http-proxy-middleware がそれぞれ使う micromatch だけで、公開する dist には入らない。
     # braces 3.0.4 以降が公開されたら削除すること
     - GHSA-vfj7-8cjw-p6xm
 engineStrict: true
@@ -19,8 +19,6 @@ overrides:
   esbuild@<0.28.1: '>=0.28.1 <1.0.0'
   ws@<8.21.0: '>=8.21.0 <9.0.0'
   form-data@<4.0.6: '>=4.0.6 <5.0.0'
-  # 2026-07 audit 波の新規 advisory 対応
-  'websocket-driver': '>=0.7.5'
   # brace-expansion は 5.0.7 以下が全て脆弱になり 1 系に安全版が無い。
   # 1 系を要求するのは minimatch 3 系のみなので、minimatch 側を
   # brace-expansion 5 系を使う 10 系へ引き上げて解消する。
@@ -37,11 +35,6 @@ overrides:
   'brace-expansion@>=3 <5.0.8': '>=5.0.8'
   'postcss@<8.5.18': '>=8.5.18'
   'fast-uri@>=3.0.0 <3.1.4': '>=3.1.4'
-  # sockjs 0.3.24（webpack-dev-server 5 系が使う）が uuid ^8.3.2 を宣言しており、
-  # 修正版の 11.1.1 以上に届かない。sockjs は CJS で、uuid 12 以降は CJS ビルドを
-  # 含まず上流も CJS の利用者に 11 系を案内しているので、11 系に留める。
-  # webpack-dev-server 6 系は sockjs に依存しないので、6 系に上げたら削除すること
-  'uuid@<11.1.1': '>=11.1.1 <12.0.0'
 packageManagerStrictVersion: true
 savePrefix: ""
 trustPolicy: no-downgrade
