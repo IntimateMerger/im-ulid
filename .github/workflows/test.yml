@@ -25,6 +25,10 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
+      # --frozen-lockfile の install は依存解決を省くため peer を検査しない（strictPeerDependencies でも落ちない）
+      - name: Peer dependency check
+        run: pnpm peers check
+
       - name: Security audit
         run: pnpm audit
 
