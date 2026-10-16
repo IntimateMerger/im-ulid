@@ -44,5 +44,16 @@ jobs:
       - name: Login to ArtifactRegistry
         run: pnpm run artifactregistry-login
 
+      - name: Check if the version is already published
+        id: published
+        run: |
+          spec="$(node -p "require('./package.json').name")@$(node -p "require('./package.json').version")"
+          # 版が無いと E404 で非 0 終了する
+          if pnpm view "$spec" version > /dev/null 2>&1; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+            echo "$spec is already published. Skipping publish."
+          fi
+
       - name: Publish to ArtifactRegistry
+        if: steps.published.outputs.exists != 'true'
         run: pnpm publish --no-git-checks
