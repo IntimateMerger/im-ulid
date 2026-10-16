@@ -1,4 +1,10 @@
 auditLevel: high
+auditConfig:
+  ignoreGhsas:
+    # braces <=3.0.3 の DoS（修正版は未公開）。経路は ts-loader の micromatch と
+    # webpack-dev-server の chokidar / http-proxy-middleware だけで、公開する dist には入らない。
+    # braces 3.0.4 以降が公開されたら削除すること
+    - GHSA-vfj7-8cjw-p6xm
 engineStrict: true
 ignoreScripts: true
 minimumReleaseAge: 10080 # 1 week
