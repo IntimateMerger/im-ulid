@@ -1,6 +1,6 @@
 {
   "name": "@intimatemerger-internal/im-ulid",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "main": "dist/im-ulid.js",
   "types": "dist/im-ulid.d.ts",
   "files": [
@@ -39,6 +39,6 @@
   },
   "packageManager": "pnpm@11.9.0",
   "engines": {
-    "node": ">=24.14.1 <25"
+    "node": ">=24.22.1 <25"
   }
 }
