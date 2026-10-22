@@ -1,6 +1,6 @@
 {
   "name": "@intimatemerger-internal/im-ulid",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "main": "dist/im-ulid.js",
   "types": "dist/im-ulid.d.ts",
   "files": [
