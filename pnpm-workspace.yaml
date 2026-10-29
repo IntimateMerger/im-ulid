@@ -9,6 +9,7 @@ engineStrict: true
 ignoreScripts: true
 minimumReleaseAge: 10080 # 1 week
 minimumReleaseAgeExclude:
+  - body-parser@2.4.0
   - esbuild
   - '@esbuild/*'
   - form-data
